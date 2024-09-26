@@ -1,6 +1,9 @@
 import * as PIXI from "pixi.js";
+import { handleTileClick } from "./game.js";
+
 const gridSize = 9;
 const tileSize = 64;
+
 export function createField(app, gridSize, tileSize, elements) {
   // Функція для випадкового вибору елемента
   function getRandomElement() {
@@ -30,6 +33,8 @@ export function createField(app, gridSize, tileSize, elements) {
 
       // Додаємо обробку кліку по плитці
       tile.on("pointerdown", () => {
+        // Викликаємо функцію заміни
+        handleTileClick(tile, app, gridSize, tileSize);
         console.log(`Позиція клітинки: ряд ${row}, колонка ${col}`);
       });
     }
