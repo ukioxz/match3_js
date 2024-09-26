@@ -40,19 +40,29 @@ export function handleTileClick(tile, app, gridSize, tileSize) {
     selectedTile = tile; // Вибираємо поточну плитку
     tile.alpha = 0.5; // Візуально позначаємо вибрану плитку
   } else {
-    // Міняємо місцями текстури двох плиток
-    /*const tempTexture = selectedTile.texture;
-    selectedTile.texture = tile.texture;
-      tile.texture = tempTexture;*/
-    const tempX = selectedTile.x;
-    const tempY = selectedTile.y;
+    if (areTilesAdjacent(selectedTile, tile)) {
+      // Міняємо місцями текстури двох плиток
+      /*const tempTexture = selectedTile.texture;
+      selectedTile.texture = tile.texture;
+        tile.texture = tempTexture;*/
+      const tempX = selectedTile.x;
+      const tempY = selectedTile.y;
+      const tempRow = selectedTile.gridRow;
+      const tempCol = selectedTile.gridCol;
 
-    //animateTileMovement(selectedTile, tile.x, tile.y); // Анімація для першої плитки
-    //animateTileMovement(tile, tempX, tempY); // Анімація для другої плитки
-    // Використовуємо GSAP для анімації переміщення
-    gsap.to(selectedTile, { x: tile.x, y: tile.y, duration: 0.23 }); // Плавно переміщуємо першу плитку
-    gsap.to(tile, { x: tempX, y: tempY, duration: 0.23 }); // Плавно переміщуємо другу плитку
-
+      //animateTileMovement(selectedTile, tile.x, tile.y); // Анімація для першої плитки
+      //animateTileMovement(tile, tempX, tempY); // Анімація для другої плитки
+      // Використовуємо GSAP для анімації переміщення
+      gsap.to(selectedTile, { x: tile.x, y: tile.y, duration: 0.23 }); // Плавно переміщуємо першу плитку
+      gsap.to(tile, { x: tempX, y: tempY, duration: 0.23 }); // Плавно переміщуємо другу плитку
+      // Обмінюємося рядками і колонками між плитками
+      selectedTile.gridRow = tile.gridRow;
+      selectedTile.gridCol = tile.gridCol;
+      tile.gridRow = tempRow;
+      tile.gridCol = tempCol;
+    } /*else {
+      console.log("Don't do it");
+    }*/
     // Повертаємо прозорість для вибраної плитки
     selectedTile.alpha = 1;
 

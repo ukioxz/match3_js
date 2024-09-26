@@ -24,6 +24,10 @@ export function createField(app, gridSize, tileSize, elements) {
       tile.x = col * tileSize;
       tile.y = row * tileSize;
 
+      // Додаємо інформацію про рядок і колонку для кожної плитки
+      tile.gridRow = row;
+      tile.gridCol = col;
+
       // Додаємо елемент на сцену
       app.stage.addChild(tile);
 
