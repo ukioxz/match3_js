@@ -313,7 +313,22 @@ function dropTiles(field, gridSize, tileSize) {
           tile.gridRow = row + emptySpaces;
 
           // Анімація падіння
-          tl.to(tile, { y: tile.y + emptySpaces * tileSize, duration: 0.5 }, 0);
+          tl.to(
+            tile,
+            {
+              y: tile.y + emptySpaces * tileSize,
+              duration: 0.5,
+              onComplete: () => {
+                // Оновлюємо обробник події після зміщення
+                tile.interactive = true;
+                tile.buttonMode = true;
+                tile.on("pointerdown", () =>
+                  handleTileClick(tile, app, gridSize, tileSize, field)
+                );
+              },
+            },
+            0
+          );
         }
       }
     }
@@ -343,6 +358,12 @@ function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
 
           // Заповнюємо порожні місця
           field[row][col] = tile;
+          // Встановлюємо події на нові плитки
+          tile.interactive = true;
+          tile.buttonMode = true;
+          tile.on("pointerdown", () =>
+            handleTileClick(tile, app, gridSize, tileSize, field)
+          );
 
           // Анімація появи нових плиток
           tl.to(tile, { y: row * tileSize, duration: 0.5 }, 0);
