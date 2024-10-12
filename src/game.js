@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import { getRandomElement } from "./utils.js";
+import { initializeScore, updateScoreText, addPoints } from "./score.js";
 /*import {
   checkMatches,
   removeMatches,
@@ -154,6 +155,7 @@ export function handleTileClick(tile, app, gridSize, tileSize, field) {
 
       const matches = checkMatches(field, gridSize);
       if (matches.length > 0) {
+        console.log(score);
         // Якщо є збіги, обробляємо їх поетапно
         removeMatches(matches, app, field)
           .then(() => dropTiles(field, gridSize, tileSize))

@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import { handleTileClick } from "./game.js";
+import { addPoints } from "./score.js";
 
 const gridSize = 9;
 const tileSize = 64;
@@ -53,6 +54,7 @@ export function createField(app, gridSize, tileSize, elements) {
       tile.on("pointerdown", () => {
         // Викликаємо функцію заміни
         handleTileClick(tile, app, gridSize, tileSize, field, elements);
+        addPoints(10);
         //console.log(`Позиція клітинки: ряд ${row}, колонка ${col}`);
       });
       field[row][col] = tile;
