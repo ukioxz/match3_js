@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import { getRandomElement } from "./utils.js";
+import { updateScore, score } from "./score.js";
 /*import {
   checkMatches,
   removeMatches,
@@ -293,6 +294,7 @@ function removeMatches(matches, app, field) {
             } else console.log("ne ura");
             //console.log("Tile texture:", tile.texture);
           }
+          updateScore(5);
           app.stage.removeChild(tile);
 
           // Видаляємо плитку з масиву
@@ -400,6 +402,7 @@ function removeRowOrColumn(tile, field, app, gridSize) {
     if (field[row][c]) {
       app.stage.removeChild(field[row][c]);
       field[row][c] = null;
+      updateScore(5);
     }
   }
 
@@ -408,6 +411,7 @@ function removeRowOrColumn(tile, field, app, gridSize) {
     if (field[r][col]) {
       app.stage.removeChild(field[r][col]);
       field[r][col] = null;
+      updateScore(5);
     }
   }
 }
