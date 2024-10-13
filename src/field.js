@@ -1,8 +1,8 @@
 import * as PIXI from "pixi.js";
 //import { handleTileClick } from "./game.js";
 //import { handleTileClick } from "./gameLev1.js";
-import { handleTileClick } from "./gameLev2.js";
-//import { handleTileClick } from "./gameLev3.js";
+//import { handleTileClick } from "./gameLev2.js";
+import { handleTileClick } from "./gameLev3.js";
 
 const gridSize = 9;
 const tileSize = 64;
