@@ -282,12 +282,15 @@ function removeMatches(matches, app, field) {
   return new Promise((resolve) => {
     const tl = gsap.timeline({
       onComplete: () => {
+        const gridSize = field.length;
         matches.forEach((tile) => {
           if (tile) {
             // Діагностичний лог для відстеження текстури
             const textureImg1 = PIXI.Texture.from("../public/sprites/1.png");
-            if (textureImg1 === tile.texture) console.log("ura");
-            else console.log("ne ura");
+            if (textureImg1 === tile.texture) {
+              console.log("ura");
+              removeRowOrColumn(tile, field, app, gridSize);
+            } else console.log("ne ura");
             //console.log("Tile texture:", tile.texture);
           }
           app.stage.removeChild(tile);
@@ -385,4 +388,26 @@ function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
       }
     }
   });
+}
+
+// Видалення рядка або стовпця на основі позиції плитки
+function removeRowOrColumn(tile, field, app, gridSize) {
+  const row = tile.gridRow;
+  const col = tile.gridCol;
+
+  // Видаляємо рядок
+  for (let c = 0; c < gridSize; c++) {
+    if (field[row][c]) {
+      app.stage.removeChild(field[row][c]);
+      field[row][c] = null;
+    }
+  }
+
+  // Видаляємо стовпець
+  for (let r = 0; r < gridSize; r++) {
+    if (field[r][col]) {
+      app.stage.removeChild(field[r][col]);
+      field[r][col] = null;
+    }
+  }
 }
