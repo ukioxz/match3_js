@@ -1,11 +1,27 @@
 import * as PIXI from "pixi.js";
 //import { handleTileClick } from "./game.js";
-//import { handleTileClick } from "./gameLev1.js";
-//import { handleTileClick } from "./gameLev2.js";
-import { handleTileClick } from "./gameLev3.js";
+import { handleTileClick as handleTileClick1 } from "./gameLev1.js";
+import { handleTileClick as handleTileClick2 } from "./gameLev2.js";
+import { handleTileClick as handleTileClick3 } from "./gameLev3.js";
+
+let selectedHandleTileClick;
 
 const gridSize = 9;
 const tileSize = 64;
+const level1Btn = document.getElementById("level1");
+const level2Btn = document.getElementById("level2");
+const level3Btn = document.getElementById("level3");
+const level4Btn = document.getElementById("level4");
+
+level1Btn.addEventListener("click", () => {
+  selectedHandleTileClick = handleTileClick1;
+});
+level2Btn.addEventListener("click", () => {
+  selectedHandleTileClick = handleTileClick2;
+});
+level3Btn.addEventListener("click", () => {
+  selectedHandleTileClick = handleTileClick3;
+});
 
 export function createField(app, gridSize, tileSize, elements) {
   // Функція для випадкового вибору елемента
@@ -55,7 +71,8 @@ export function createField(app, gridSize, tileSize, elements) {
       // Додаємо обробку кліку по плитці
       tile.on("pointerdown", () => {
         // Викликаємо функцію заміни
-        handleTileClick(tile, app, gridSize, tileSize, field, elements);
+        //handleTileClick3(tile, app, gridSize, tileSize, field, elements);
+        selectedHandleTileClick(tile, app, gridSize, tileSize, field, elements);
         //console.log(`Позиція клітинки: ряд ${row}, колонка ${col}`);
       });
       field[row][col] = tile;

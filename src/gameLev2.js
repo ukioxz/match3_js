@@ -131,6 +131,7 @@ function areTilesAdjacent(tile1, tile2) {
   }
 }*/
 export function handleTileClick(tile, app, gridSize, tileSize, field) {
+  console.log("Клік у рівні 2");
   const img1 = new Image();
   img1.src = "../public/sprites/1.png";
   //const baseImg1 = new PIXI.BaseTexture(img1);
