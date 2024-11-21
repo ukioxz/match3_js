@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 html,
 body {
     margin: 0;
@@ -6,7 +7,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    /*background-color: #f0f0f0;*/
+    background-color: black;
+    color: aliceblue;
 }
 
 canvas {
@@ -22,6 +25,28 @@ canvas {
 
 #scoreCounter {
     font-size: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
     margin-bottom: 20px;
+    color: aliceblue;
     /* Відступ від лічильника до гри */
+}
+.button-33 {
+    margin: 10px;
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
+    width: 100px;
+    height: 40px;
+    background: #06C1DE;
+    border: 0px;
+    position: relative;
+    box-shadow:
+        inset -4px 2px 1px 1px grey,
+        inset -4px -2px 1px 1px lightgray,
+        inset 4px 0px 1px 1px lightgray;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
 }

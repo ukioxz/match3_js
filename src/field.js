@@ -3,6 +3,13 @@ import * as PIXI from "pixi.js";
 import { handleTileClick as handleTileClick1 } from "./gameLev1.js";
 import { handleTileClick as handleTileClick2 } from "./gameLev2.js";
 import { handleTileClick as handleTileClick3 } from "./gameLev3.js";
+import {
+  textTask1,
+  textTask2,
+  textTask3,
+  textTask4,
+  updateTextOfLevel,
+} from "./textLevel.js";
 
 let selectedHandleTileClick;
 
@@ -15,12 +22,15 @@ const level4Btn = document.getElementById("level4");
 
 level1Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick1;
+  updateTextOfLevel(textTask1);
 });
 level2Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick2;
+  updateTextOfLevel(textTask2);
 });
 level3Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick3;
+  updateTextOfLevel(textTask3);
 });
 
 export function createField(app, gridSize, tileSize, elements) {
