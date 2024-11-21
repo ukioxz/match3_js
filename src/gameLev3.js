@@ -1,7 +1,9 @@
 import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
+import { Howl } from "howler";
 import { getRandomElement } from "./utils.js";
 import { updateScore, score } from "./score.js";
+//import { initializeScore, updateScoreText, addPoints } from "./score.js";
 /*import {
   checkMatches,
   removeMatches,
@@ -9,6 +11,17 @@ import { updateScore, score } from "./score.js";
   fillEmptySpaces,
 } from "./match.js";*/
 import { elements } from "./config.js";
+
+document.addEventListener("click", () => {
+  Howler.autoUnlock = true; // Howler.js автоматично розблокує аудіо
+  console.log("AudioContext розблоковано після кліку");
+});
+const sounds = {
+  tileClick: new Howl({ src: ["sounds/click2.mp3"] }),
+  match: new Howl({ src: ["sounds/jingle.mp3"] }),
+  explosion: new Howl({ src: ["sounds/sparkle.mp3"] }),
+  drop: new Howl({ src: ["sounds/match13.mp3"] }),
+};
 
 let selectedTile = null;
 
@@ -139,10 +152,12 @@ export function handleTileClick(tile, app, gridSize, tileSize, field) {
   //console.log(textureImg1);
   //console.log(textureImg2);
   if (!selectedTile) {
+    sounds.tileClick.play();
     selectedTile = tile;
     tile.alpha = 0.5;
   } else {
     if (areTilesAdjacent(selectedTile, tile)) {
+      sounds.tileClick.play();
       const tempX = selectedTile.x;
       const tempY = selectedTile.y;
       const tempRow = selectedTile.gridRow;
@@ -295,6 +310,7 @@ function removeMatches(matches, app, field) {
           triggerExplosions(app, field, 1); // Запускаємо 4 вибухи
         }
         matches.forEach((tile) => {
+          sounds.match.play();
           /*if (tile) {
             // Діагностичний лог для відстеження текстури
             const textureImg1 = PIXI.Texture.from("../public/sprites/1.png");
@@ -354,6 +370,7 @@ function dropTiles(field, gridSize, tileSize) {
                 tile.on("pointerdown", () =>
                   handleTileClick(tile, app, gridSize, tileSize, field)
                 );
+                sounds.drop.play();
               },
             },
             0
@@ -405,6 +422,9 @@ function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
 // Функція для запуску "вибухів"
 function triggerExplosions(app, field, numberOfExplosions) {
   const gridSize = field.length;
+  sounds.match.pause();
+  sounds.explosion.play(); // Звук вибуху
+  //sounds.match.stop();
 
   for (let i = 0; i < numberOfExplosions; i++) {
     const randomRow = Math.floor(Math.random() * (gridSize - 1));
