@@ -8,6 +8,10 @@ import {
   textTask2,
   textTask3,
   textTask4,
+  descrTask1,
+  descrTask2,
+  descrTask3,
+  descrTask4,
   updateTextOfLevel,
 } from "./textLevel.js";
 
@@ -22,15 +26,15 @@ const level4Btn = document.getElementById("level4");
 
 level1Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick1;
-  updateTextOfLevel(textTask1);
+  updateTextOfLevel(textTask1, descrTask1);
 });
 level2Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick2;
-  updateTextOfLevel(textTask2);
+  updateTextOfLevel(textTask2, descrTask2);
 });
 level3Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick3;
-  updateTextOfLevel(textTask3);
+  updateTextOfLevel(textTask3, descrTask3);
 });
 
 export function createField(app, gridSize, tileSize, elements) {
