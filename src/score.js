@@ -1,10 +1,17 @@
+import { endGame } from "./endGame";
 export let score = 0;
 let scoreText;
+const targetScore = 300;
+
 const divScore = document.getElementById("scoreCounter");
 export function updateScore(points) {
   score += points;
   console.log(`Очки: ${score}`);
   divScore.textContent = `Score: ${score}`;
+  // Перевіряємо, чи досягнуто цільову кількість очок
+  if (score >= targetScore) {
+    endGame(); // Викликаємо функцію завершення гри
+  }
 }
 /*import * as PIXI from "pixi.js";
 import { Text } from "pixi.js";

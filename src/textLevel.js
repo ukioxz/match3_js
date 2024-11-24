@@ -11,11 +11,19 @@ export let descrTask3 =
 export let descrTask4;
 //let scoreText;
 const textOfLevel = document.getElementById("textOfLevel");
+const l = document.querySelector(".nameLevel");
+console.log(l);
 const descrOfLevel = document.getElementById("descrOfLevel");
 const textMision = document.getElementById("textMision");
 export function updateTextOfLevel(textTask, descrTask) {
   //score += points;
   //console.log(`Очки: ${score}`);
   textOfLevel.textContent = `${textTask}`;
+  l.textContent = `${textTask}`;
   descrOfLevel.innerHTML = `${descrTask}`;
+}
+export function hideMenu() {
+  document.getElementById("startBtn").addEventListener("click", () => {
+    document.getElementById("startMenu").style.display = "none";
+  });
 }

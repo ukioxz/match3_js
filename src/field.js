@@ -13,7 +13,9 @@ import {
   descrTask3,
   descrTask4,
   updateTextOfLevel,
+  hideMenu,
 } from "./textLevel.js";
+import { playMusic } from "./music.js";
 
 let selectedHandleTileClick;
 
@@ -23,17 +25,21 @@ const level1Btn = document.getElementById("level1");
 const level2Btn = document.getElementById("level2");
 const level3Btn = document.getElementById("level3");
 const level4Btn = document.getElementById("level4");
+hideMenu();
 
 level1Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick1;
+  playMusic(1);
   updateTextOfLevel(textTask1, descrTask1);
 });
 level2Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick2;
+  playMusic(2);
   updateTextOfLevel(textTask2, descrTask2);
 });
 level3Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick3;
+  playMusic(3);
   updateTextOfLevel(textTask3, descrTask3);
 });
 

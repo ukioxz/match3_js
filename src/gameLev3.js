@@ -20,7 +20,8 @@ const sounds = {
   tileClick: new Howl({ src: ["sounds/click2.mp3"] }),
   match: new Howl({ src: ["sounds/jingle.mp3"] }),
   explosion: new Howl({ src: ["sounds/sparkle.mp3"] }),
-  drop: new Howl({ src: ["sounds/match13.mp3"] }),
+  drop: new Howl({ src: ["sounds/shine.mp3"] }),
+  //back: new Howl({ src: ["sounds/back3.mp3"], loop: true, volume: 0.5 }),
 };
 
 let selectedTile = null;
@@ -371,7 +372,6 @@ function dropTiles(field, gridSize, tileSize) {
                 tile.on("pointerdown", () =>
                   handleTileClick(tile, app, gridSize, tileSize, field)
                 );
-                sounds.drop.play();
               },
             },
             0
@@ -417,6 +417,7 @@ function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
         }
       }
     }
+    sounds.drop.play();
   });
 }
 
