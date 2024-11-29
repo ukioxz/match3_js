@@ -14,7 +14,7 @@ _Добро пожалувати до захопливої гри "Зоряни�
 
 Кожен рівень має свою особливість та випробування! 🚀
 
-![Gameplay Screenshot](assets/gameplay_example.png)
+![Gameplay Screenshot](./public/img_readme/menu-start.png)
 
 ---
 
@@ -35,10 +35,10 @@ _Добро пожалувати до захопливої гри "Зоряни�
 ## 📸 **Скріншоти гри**
 
 1️⃣ **Меню гри:**  
-![Main Menu](public/menu-start.png)
+![Main Menu](./public/img_readme/menu-start.png)
 
 2️⃣ **Геймплей 1-го рівня:**  
-![Level 1 Screenshot](public/menu-start-lev2.png)
+![Level 1 Screenshot](./public/img_readme/menu-start-lev2.png)
 
 3️⃣ **Вибухи на 3-му рівні:**  
 ![Level 3 Explosion](public/menu-start.png)
