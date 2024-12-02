@@ -41,10 +41,10 @@ _Подорожуй галактикою, вирішуй головоломки 
 ![Level 1 Screenshot](./public/img_readme/menu-start-lev2.png)
 
 3️⃣ **Вибухи на 3-му рівні:**  
-![Level 3 Explosion](public/menu-start.png)
+![Level 3 Explosion](public/img_readme/menu-start.png)
 
 3️⃣ **Завершення гри:**  
-![Game Over](public/game-over.png)
+![Game Over](public/img_readme/game-over.png)
 
 ---
 
