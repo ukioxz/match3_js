@@ -34,16 +34,22 @@ _Подорожуй галактикою, вирішуй головоломки 
 
 ## 📸 **Скріншоти гри**
 
-1️⃣ **Меню гри:**  
+**Меню гри:**  
 ![Main Menu](./public/img_readme/menu-start.png)
 
-2️⃣ **Геймплей 1-го рівня:**  
-![Level 1 Screenshot](./public/img_readme/menu-start-lev2.png)
+1️⃣ **1 рівень Зоряний хрест:**  
+![Level 1 Screenshot](./public/img_readme/lev1.png)
 
-3️⃣ :collision: **Вибухи на 3-му рівні:**  
-![Level 3 Explosion](public/img_readme/menu-start.png)
+2️⃣ **2 рівень Космічний вихор:**  
+![Level 2 Screenshot](public/img_readme/lev2.png)
 
-3️⃣ **Завершення гри:**  
+3️⃣ **3 рівень Зоряний вибух:**  
+![Level 3 Screenshot](public/img_readme/lev3.png)
+
+4️⃣ **4 рівень Перша гармонія:**  
+![Level 4 Screenshot](public/img_readme/lev4.png)
+
+**Завершення гри:**  
 ![Game Over](public/img_readme/game-over.png)
 
 ---
