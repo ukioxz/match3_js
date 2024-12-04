@@ -27,6 +27,7 @@ const level1Btn = document.getElementById("level1");
 const level2Btn = document.getElementById("level2");
 const level3Btn = document.getElementById("level3");
 const level4Btn = document.getElementById("level4");
+const restartBtn = document.getElementById("restart");
 hideMenu();
 
 level1Btn.addEventListener("click", () => {
@@ -52,6 +53,10 @@ level4Btn.addEventListener("click", () => {
   setTargetScore(300);
   playMusic(4);
   updateTextOfLevel(textTask4, descrTask4);
+});
+
+restartBtn.addEventListener("click", () => {
+  location.reload(); // Перезапускаємо сторінку
 });
 
 export function createField(app, gridSize, tileSize, elements) {
