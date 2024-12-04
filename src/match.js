@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 export function checkMatches(field, gridSize) {
   const matches = [];
   // Перевірка горизонтальних і вертикальних збігів
-  // (код як раніше, див. попередні відповіді)
   // Перевірка рядків
   for (let row = 0; row < gridSize; row++) {
     for (let col = 0; col < gridSize - 2; col++) {
@@ -76,46 +75,6 @@ export function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
     }
   }
 }
-// Функція для опускання плиток після видалення
-/*export function dropTiles(field, gridSize, tileSize) {
-  for (let col = 0; col < gridSize; col++) {
-    for (let row = gridSize - 1; row >= 0; row--) {
-      if (!field[row][col]) {
-        // Шукаємо першу не порожню клітинку вище
-        for (let aboveRow = row - 1; aboveRow >= 0; aboveRow--) {
-          if (field[aboveRow][col]) {
-            // Опускаємо елемент
-            field[row][col] = field[aboveRow][col];
-            field[aboveRow][col] = null;
-            field[row][col].y = row * tileSize;
-            break;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Функція для заповнення порожніх клітинок новими елементами
-export function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
-  for (let row = 0; row < gridSize; row++) {
-    for (let col = 0; col < gridSize; col++) {
-      if (!field[row][col]) {
-        // Створюємо новий елемент
-        const texture = PIXI.Texture.from(getRandomElement(elements));
-        const tile = new PIXI.Sprite(texture);
-        tile.width = tileSize;
-        tile.height = tileSize;
-        tile.x = col * tileSize;
-        tile.y = row * tileSize;
-        field[row][col] = tile;
-
-        // Додаємо новий елемент на сцену
-        app.stage.addChild(tile);
-      }
-    }
-  }
-}*/
 
 // Допоміжна функція для випадкового вибору елемента
 export function getRandomElement(elements) {

@@ -3,8 +3,8 @@ import { Howl } from "howler";
 const musicTracks = {
   level1: new Howl({
     src: ["sounds/back1.mp3"],
-    loop: true, // Зацикливание музыки
-    volume: 0.2, // Громкость
+    loop: true,
+    volume: 0.2,
   }),
   level2: new Howl({
     src: ["sounds/back2.mp3"],

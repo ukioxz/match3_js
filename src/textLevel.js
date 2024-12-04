@@ -17,8 +17,6 @@ console.log(l);
 const descrOfLevel = document.getElementById("descrOfLevel");
 const textMision = document.getElementById("textMision");
 export function updateTextOfLevel(textTask, descrTask) {
-  //score += points;
-  //console.log(`Очки: ${score}`);
   textOfLevel.textContent = `${textTask}`;
   l.textContent = `${textTask}`;
   descrOfLevel.innerHTML = `${descrTask}`;

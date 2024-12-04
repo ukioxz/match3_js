@@ -33,15 +33,13 @@ export function endGame() {
 
   button.addEventListener("click", () => {
     overlay.remove();
-    // Тут можна додати логіку для перезапуску гри чи повернення до меню
-    location.reload(); // Перезапускаємо сторінку (як приклад)
+    location.reload(); // Перезапускаємо сторінку
   });
 
   message.appendChild(button);
   overlay.appendChild(message);
   document.body.appendChild(overlay);
 
-  // Додатково можна припинити обробку кліків на поле гри
   disableGameField();
 }
 // Функція, що робить поле гри неклікабельним

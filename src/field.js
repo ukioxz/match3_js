@@ -74,11 +74,6 @@ export function createField(app, gridSize, tileSize, elements) {
     for (let col = 0; col < gridSize; col++) {
       let texture = null;
       let tile = null;
-      // Отримуємо випадковий елемент
-      //const texture = PIXI.Texture.from(getRandomElement());
-      //const texture = PIXI.Texture.from(getRandomElement(elements));
-      //const tile = new PIXI.Sprite(texture);
-
       do {
         // Генеруємо випадковий елемент
         texture = PIXI.Texture.from(getRandomElement(elements));
@@ -107,9 +102,7 @@ export function createField(app, gridSize, tileSize, elements) {
       // Додаємо обробку кліку по плитці
       tile.on("pointerdown", () => {
         // Викликаємо функцію заміни
-        //handleTileClick3(tile, app, gridSize, tileSize, field, elements);
         selectedHandleTileClick(tile, app, gridSize, tileSize, field, elements);
-        //console.log(`Позиція клітинки: ряд ${row}, колонка ${col}`);
       });
       field[row][col] = tile;
       app.stage.addChild(tile);
