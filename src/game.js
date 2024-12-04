@@ -1,6 +1,8 @@
 import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import { getRandomElement } from "./utils.js";
+import { Howl } from "howler";
+import { updateScore, score } from "./score.js";
 /*import {
   checkMatches,
   removeMatches,
@@ -9,6 +11,13 @@ import { getRandomElement } from "./utils.js";
 } from "./match.js";*/
 import { elements } from "./config.js";
 
+const targetSscore = 300;
+const sounds = {
+  tileClick: new Howl({ src: ["sounds/click2.mp3"] }),
+  match: new Howl({ src: ["sounds/jingle.mp3"] }),
+  drop: new Howl({ src: ["sounds/shine.mp3"] }),
+  //back: new Howl({ src: ["sounds/back3.mp3"], loop: true, volume: 0.5 }),
+};
 let selectedTile = null;
 
 // Функція для анімації переміщення елементів
@@ -131,10 +140,12 @@ function areTilesAdjacent(tile1, tile2) {
 }*/
 export function handleTileClick(tile, app, gridSize, tileSize, field) {
   if (!selectedTile) {
+    sounds.tileClick.play();
     selectedTile = tile;
     tile.alpha = 0.5;
   } else {
     if (areTilesAdjacent(selectedTile, tile)) {
+      sounds.tileClick.play();
       const tempX = selectedTile.x;
       const tempY = selectedTile.y;
       const tempRow = selectedTile.gridRow;
@@ -276,6 +287,8 @@ function removeMatches(matches, app, field) {
     const tl = gsap.timeline({
       onComplete: () => {
         matches.forEach((tile) => {
+          sounds.match.play();
+          updateScore(5);
           app.stage.removeChild(tile);
 
           // Видаляємо плитку з масиву
@@ -370,5 +383,6 @@ function fillEmptySpaces(field, gridSize, tileSize, elements, app) {
         }
       }
     }
+    sounds.drop.play();
   });
 }

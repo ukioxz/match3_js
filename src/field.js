@@ -3,6 +3,7 @@ import * as PIXI from "pixi.js";
 import { handleTileClick as handleTileClick1 } from "./gameLev1.js";
 import { handleTileClick as handleTileClick2 } from "./gameLev2.js";
 import { handleTileClick as handleTileClick3 } from "./gameLev3.js";
+import { handleTileClick as handleTileClick4 } from "./game.js";
 import {
   textTask1,
   textTask2,
@@ -16,6 +17,7 @@ import {
   hideMenu,
 } from "./textLevel.js";
 import { playMusic } from "./music.js";
+import { setTargetScore } from "./score.js";
 
 let selectedHandleTileClick;
 
@@ -29,18 +31,27 @@ hideMenu();
 
 level1Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick1;
+  setTargetScore(2300);
   playMusic(1);
   updateTextOfLevel(textTask1, descrTask1);
 });
 level2Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick2;
+  setTargetScore(220);
   playMusic(2);
   updateTextOfLevel(textTask2, descrTask2);
 });
 level3Btn.addEventListener("click", () => {
   selectedHandleTileClick = handleTileClick3;
+  setTargetScore(260);
   playMusic(3);
   updateTextOfLevel(textTask3, descrTask3);
+});
+level4Btn.addEventListener("click", () => {
+  selectedHandleTileClick = handleTileClick4;
+  setTargetScore(300);
+  playMusic(4);
+  updateTextOfLevel(textTask4, descrTask4);
 });
 
 export function createField(app, gridSize, tileSize, elements) {
